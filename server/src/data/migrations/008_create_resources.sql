@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS player_resources (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  player_game_id INTEGER NOT NULL UNIQUE REFERENCES game_players(id),
+  food INTEGER NOT NULL DEFAULT 0,
+  wood INTEGER NOT NULL DEFAULT 0,
+  metal INTEGER NOT NULL DEFAULT 0,
+  civilians INTEGER NOT NULL DEFAULT 0,
+  soldiers INTEGER NOT NULL DEFAULT 0,
+  created_at TEXT NOT NULL DEFAULT (datetime('now')),
+  updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+);

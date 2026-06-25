@@ -1,0 +1,15 @@
+CREATE TABLE IF NOT EXISTS clan_resources (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  clan_id INTEGER NOT NULL UNIQUE REFERENCES clans(id),
+  food INTEGER NOT NULL DEFAULT 200,
+  wood INTEGER NOT NULL DEFAULT 150,
+  metal INTEGER NOT NULL DEFAULT 50,
+  civilians INTEGER NOT NULL DEFAULT 10,
+  soldiers INTEGER NOT NULL DEFAULT 0,
+  food_capacity INTEGER NOT NULL DEFAULT 10000,
+  wood_capacity INTEGER NOT NULL DEFAULT 10000,
+  metal_capacity INTEGER NOT NULL DEFAULT 10000,
+  last_production_tick_at TEXT,
+  created_at TEXT NOT NULL DEFAULT (datetime('now')),
+  updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
