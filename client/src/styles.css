@@ -1,0 +1,896 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #1a1410;
+  color: #d4c5a9;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  color: #c8a96e;
+  text-decoration: none;
+}
+a:hover {
+  color: #e6c384;
+  text-decoration: underline;
+}
+
+input, select {
+  background: #2a221c;
+  border: 1px solid #4a3f35;
+  color: #d4c5a9;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+input:focus, select:focus {
+  outline: none;
+  border-color: #c8a96e;
+  box-shadow: 0 0 0 2px rgba(200, 169, 110, 0.2);
+}
+
+h1, h2, h3, h4 {
+  color: #e6d5b8;
+  margin-bottom: 12px;
+}
+
+h1 { font-size: 28px; }
+h2 { font-size: 22px; }
+h3 { font-size: 18px; }
+h4 { font-size: 15px; }
+
+p {
+  margin-bottom: 8px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #3a3028;
+  margin: 24px 0;
+}
+
+.error {
+  color: #e07a5f;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.msg {
+  color: #81b29a;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* ── Auth Pages (Login / Register) ── */
+.auth-page {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 32px;
+  background: #221a15;
+  border: 1px solid #3a3028;
+  border-radius: 8px;
+  text-align: center;
+}
+.auth-page input {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+}
+.auth-page .btn {
+  width: 100%;
+  margin-top: 8px;
+}
+.auth-page a {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 14px;
+}
+.auth-page .field {
+  margin-bottom: 4px;
+}
+.auth-page .field-error {
+  color: #e07a5f;
+  font-size: 12px;
+  text-align: left;
+  margin-bottom: 8px;
+  margin-top: -4px;
+}
+.auth-page .input-error {
+  border-color: #e07a5f;
+}
+.auth-page .input-error:focus {
+  border-color: #e07a5f;
+  box-shadow: 0 0 0 2px rgba(224, 122, 95, 0.2);
+}
+
+/* ── Layout ── */
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+}
+
+.app-layout-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 220px;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: 24px;
+  max-width: 960px;
+  width: 100%;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100vh;
+  z-index: 10;
+  background: #1e1712;
+  border-right: 1px solid #3a3028;
+  padding: 12px 0;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+/* ── Top Bar ── */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 24px;
+  background: #221a15;
+  border-bottom: 1px solid #3a3028;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  gap: 12px;
+}
+.top-bar-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #e6d5b8;
+  margin: 0;
+  white-space: nowrap;
+}
+.top-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+.top-bar-username {
+  font-size: 14px;
+  color: #c8a96e;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.btn-primary {
+  background: #8b6f47;
+  color: #f0e6d3;
+}
+.btn-primary:hover:not(:disabled) {
+  background: #a08358;
+}
+.btn-danger {
+  background: #9d4e3c;
+  color: #f0e6d3;
+}
+.btn-danger:hover:not(:disabled) {
+  background: #b85d48;
+}
+.btn-ghost {
+  background: transparent;
+  color: #c8a96e;
+  border: 1px solid #4a3f35;
+}
+.btn-ghost:hover:not(:disabled) {
+  background: #2a221c;
+  border-color: #c8a96e;
+}
+
+/* ── Cards ── */
+.card {
+  background: #221a15;
+  border: 1px solid #3a3028;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+.card-title {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #e6d5b8;
+}
+
+/* ── Lists ── */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.list-item {
+  padding: 12px 16px;
+  background: #221a15;
+  border: 1px solid #3a3028;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.list-item[role="button"] {
+  cursor: pointer;
+}
+.list-item[role="button"]:hover {
+  background: #2a221c;
+  border-color: #5a4f45;
+}
+
+/* ── Resource Bar ── */
+.resource-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px;
+  background: #221a15;
+  border: 1px solid #3a3028;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+.resource-bar span {
+  font-size: 15px;
+  font-weight: 500;
+}
+.resource-bar span::before {
+  display: inline-block;
+  width: 20px;
+  text-align: center;
+  margin-right: 4px;
+  font-size: 16px;
+}
+
+.resource-rate {
+  color: #4caf50;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+/* ── Progress Bar ── */
+.progress-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+}
+.progress-label {
+  font-size: 13px;
+  min-width: 50px;
+  color: #b0a08a;
+}
+.progress-fill {
+  height: 8px;
+  background: #8b6f47;
+  border-radius: 4px;
+  transition: width 0.3s;
+  min-width: 4px;
+}
+.progress-bar .progress-fill {
+  background: #2a221c;
+  flex: 1;
+  height: 10px;
+}
+.progress-bar .progress-fill + .progress-fill {
+  display: none;
+}
+.progress-text {
+  font-size: 13px;
+  color: #b0a08a;
+  min-width: 60px;
+  text-align: right;
+}
+
+/* ── City ── */
+.city-page {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.city-page h3 {
+  margin: 0.5rem 0 0 0;
+}
+.barracks-section {
+  border: 1px solid #3a3028;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.barracks-section input {
+  width: 80px;
+}
+
+.armoury-section {
+  border: 1px solid #3a3028;
+  border-radius: 8px;
+  padding: 20px;
+}
+.armoury-upgrades {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+.armoury-upgrades .msg {
+  margin-top: 8px;
+}
+
+.clan-pve-hp-bar {
+  position: relative;
+  background: #2a2018;
+  border: 1px solid #3a3028;
+  border-radius: 6px;
+  padding: 10px 14px;
+  text-align: center;
+  overflow: hidden;
+}
+.clan-pve-hp-bar .clan-pve-hp-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #4a2a1a;
+  transition: width 0.5s ease;
+  z-index: 0;
+}
+.clan-pve-hp-bar span {
+  position: relative;
+  z-index: 1;
+}
+.clan-pve-energy-bar {
+  position: relative;
+  background: #2a2018;
+  border: 1px solid #3a3028;
+  border-radius: 6px;
+  padding: 10px 14px;
+  text-align: center;
+  overflow: hidden;
+}
+.clan-pve-energy-bar .clan-pve-energy-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #2a4a1a;
+  transition: width 0.5s ease;
+  z-index: 0;
+}
+.clan-pve-energy-bar span {
+  position: relative;
+  z-index: 1;
+}
+
+.attack-result {
+  margin-top: 8px;
+  padding: 8px;
+  background: #1a1510;
+  border-radius: 4px;
+}
+
+/* ── Tabs ── */
+.tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid #3a3028;
+  margin-bottom: 16px;
+}
+.tab {
+  padding: 8px 20px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  color: #b0a08a;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  font-family: inherit;
+}
+.tab:hover {
+  background: #2a221c;
+  color: #d4c5a9;
+}
+.tab-active {
+  background: #221a15;
+  border-color: #3a3028;
+  color: #e6c384;
+  font-weight: 600;
+}
+.tab-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.clan-building-progress {
+  margin-top: 8px;
+}
+
+.clan-building-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.clan-building-actions select,
+.clan-building-actions input {
+  margin-bottom: 0;
+}
+
+/* ── Player PvE Page ── */
+.player-pve-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.player-pve-page label {
+  margin-right: 8px;
+  font-size: 14px;
+  color: #b0a08a;
+}
+
+/* ── Player PvE Card ── */
+.building-card,
+.player-pve-card,
+.clan-pve-card,
+.pvp-card,
+.clan-war-card,
+.clan-pve-battle-card,
+.clan-lookup-card {
+  background: #221a15;
+  border: 1px solid #3a3028;
+  border-radius: 6px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+.building-card h4,
+.player-pve-card h4,
+.clan-pve-card h4,
+.pvp-card h4,
+.clan-war-card h4,
+.clan-pve-battle-card h4,
+.clan-lookup-card h4 {
+  margin: 0;
+  min-width: 160px;
+}
+.building-card p,
+.player-pve-card p,
+.clan-pve-card p,
+.pvp-card p,
+.clan-war-card p,
+.clan-pve-battle-card p,
+.clan-lookup-card p {
+  margin: 0;
+  font-size: 13px;
+  color: #b0a08a;
+}
+
+.pve-card-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.pve-card-controls label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+}
+.pve-card-controls input {
+  width: 80px;
+}
+.pve-card-controls input[type="number"] {
+  width: 70px;
+}
+.pve-card-controls span {
+  font-size: 13px;
+  color: #b0a08a;
+  min-width: 80px;
+}
+
+/* ── Player PvE Report ── */
+.player-pve-report {
+  background: #221a15;
+  border: 1px solid #3a3028;
+  border-radius: 6px;
+  padding: 16px;
+  margin-top: 8px;
+}
+.player-pve-report p {
+  font-size: 14px;
+}
+
+/* ── PvP Report ── */
+.pvp-report {
+  background: #221a15;
+  border: 1px solid #3a3028;
+  border-radius: 6px;
+  padding: 16px;
+  margin-top: 8px;
+}
+.pvp-report p {
+  font-size: 14px;
+}
+
+/* ── Modal ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.modal-content {
+  background: #221a15;
+  border: 1px solid #4a3f35;
+  border-radius: 8px;
+  padding: 24px;
+  min-width: 320px;
+  max-width: 500px;
+}
+
+/* ── PvP Page ── */
+.pvp-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Clan Card ── */
+.clan-card {
+  background: #221a15;
+  border: 1px solid #3a3028;
+  border-radius: 6px;
+  padding: 14px;
+}
+
+/* ── Clan Building Card ── */
+.clan-building-card {
+  background: #1e1712;
+  border: 1px solid #3a3028;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 8px;
+}
+.clan-building-card h4 {
+  margin-bottom: 8px;
+}
+
+/* ── Home Page ── */
+.home-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 16px;
+  text-align: center;
+}
+.home-hero {
+  margin-bottom: 48px;
+}
+.home-hero h1 {
+  font-size: 40px;
+  margin-bottom: 8px;
+}
+.home-tagline {
+  font-size: 18px;
+  color: #b0a08a;
+  margin-bottom: 24px;
+}
+.home-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+.home-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  text-align: left;
+}
+.feature-card {
+  background: #221a15;
+  border: 1px solid #3a3028;
+  border-radius: 8px;
+  padding: 20px;
+}
+.feature-card h3 {
+  margin-bottom: 8px;
+}
+.feature-card p {
+  font-size: 14px;
+  color: #b0a08a;
+  line-height: 1.5;
+}
+
+/* ── Tree Nav (sidebar) ── */
+.tree-nav {
+  display: flex;
+  flex-direction: column;
+}
+.tree-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.tree-nav-link:hover {
+  background: #2a221c;
+}
+.tree-nav-link:active {
+  background: #332a22;
+}
+.tree-nav-active {
+  background: #2a221c;
+  color: #e6c384;
+}
+.tree-nav-active .tree-nav-label {
+  color: #e6c384;
+}
+.tree-nav-toggle {
+  font-size: 10px;
+  color: #8a7a64;
+  cursor: pointer;
+  width: 14px;
+  text-align: center;
+  flex-shrink: 0;
+  user-select: none;
+}
+.tree-nav-toggle:hover {
+  color: #c8a96e;
+}
+.tree-nav-bullet {
+  font-size: 10px;
+  color: #8a7a64;
+  width: 14px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.tree-nav-label {
+  font-size: 14px;
+  color: #d4c5a9;
+  text-decoration: none;
+}
+.tree-nav-label:hover {
+  color: #e6c384;
+  text-decoration: none;
+}
+
+.tick-error {
+  font-size: 12px;
+  color: #e07a5f;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.tick-error:hover {
+  text-decoration: underline;
+}
+.tick-retrying {
+  font-family: monospace;
+  font-size: 12px;
+  color: #e6c384;
+  white-space: nowrap;
+}
+
+.tick-timer {
+  font-family: monospace;
+  font-size: 12px;
+  color: #a0c070;
+  white-space: nowrap;
+  background: #1a1510;
+  border: 1px solid #3a4a2e;
+  border-radius: 4px;
+  padding: 4px 10px;
+}
+
+.btn-logout {
+  background: transparent;
+  border: 1px solid #4a3f35;
+  color: #d4c5a9;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.btn-logout:hover {
+  background: #2a221c;
+  border-color: #e07a5f;
+  color: #e07a5f;
+}
+
+/* ── Clans Page ── */
+.clans-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.clans-page > div {
+  background: #221a15;
+  border: 1px solid #3a3028;
+  border-radius: 8px;
+  padding: 16px;
+}
+.clans-page input {
+  margin-right: 8px;
+}
+.clan-lookup-result {
+  margin-top: 8px;
+  padding: 8px;
+  background: #1e1712;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* ── My Clan Page ── */
+.my-clan-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.my-clan-page > div {
+  background: #221a15;
+  border: 1px solid #3a3028;
+  border-radius: 8px;
+  padding: 16px;
+}
+.my-clan-page input, .my-clan-page select {
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+.my-clan-page ul {
+  list-style: none;
+  padding: 0;
+}
+.my-clan-page li {
+  padding: 8px 0;
+  border-bottom: 1px solid #2e261f;
+  font-size: 14px;
+  color: #c0b098;
+}
+.my-clan-page li:last-child {
+  border-bottom: none;
+}
+
+/* ── Clan PvE Page ── */
+.clan-pve-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.clan-pve-page > div {
+  background: #221a15;
+  border: 1px solid #3a3028;
+  border-radius: 8px;
+  padding: 16px;
+}
+.clan-pve-page input, .clan-pve-page select {
+  margin-right: 8px;
+}
+
+/* ── Clan War Page ── */
+.clan-war-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.clan-war-page > div {
+  background: #221a15;
+  border: 1px solid #3a3028;
+  border-radius: 8px;
+  padding: 16px;
+}
+.clan-war-page input {
+  margin-right: 8px;
+}
+.war-result {
+  margin-top: 8px;
+}
+
+/* ── Profile Page ── */
+.profile-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.profile-info {
+  background: #221a15;
+  border: 1px solid #3a3028;
+  border-radius: 8px;
+  padding: 20px;
+}
+.profile-info p {
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+.profile-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* ── Building produces / upgrade cost ── */
+.building-produces,
+.loot-rewards,
+.upgrade-cost,
+.clan-pve-collect-note {
+  font-size: 12px;
+  color: #8a7a64;
+}
+.loot-item,
+.produces-item,
+.cost-item,
+.collect-note-item {
+  display: block;
+  font-size: 13px;
+  color: #b0a08a;
+  margin-left: 12px;
+}
+.building-card,
+.player-pve-card,
+.clan-pve-card {
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+/* ── Empty state message ── */
+.empty-message {
+  font-size: 14px;
+  color: #8a7a64;
+  font-style: italic;
+}
+
+/* ── PvP label ── */
+.pvp-page label {
+  margin-right: 8px;
+  font-size: 14px;
+  color: #b0a08a;
+}
