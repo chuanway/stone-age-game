@@ -1,0 +1,46 @@
+{
+    "activeStrategy": "VAR",
+    "battleStrategy": {
+        "calculationType": {
+            "VAR": {
+                "cap": 1.0,
+                "baseChance": 0.2,
+                "varChance": 0.6,
+                "maxChance": 0.8,
+                "minChance": 0.2
+            },
+            "SAR": {
+                "victoryThreshold": 0
+            }
+        },
+        "pvpPopulationBracket": {
+            "populationThreshold": 0.1,
+            "varChanceMultiplier": {
+                "smallCity": 0.4,
+                "mediumCity": 0.6,
+                "largeCity": 0.6
+            }
+        }
+    },
+    "clanPvp": {
+        "enslavementMin": 0.2,
+        "enslavementMax": 0.5,
+        "minimumPopulationProtection": 100,
+        "attackLimitPerDay": 1,
+        "defenseLimitPerDay": 1,
+        "pvpVisibilityThreshold": 1000
+    },
+    "clanPve": {
+        "monsterHpMultiplierPerMember": 100,
+        "lootMultiplier": 5,
+        "energyCostPerAction": 10
+    },
+    "playerPvp": {
+        "enslavementMin": 0.2,
+        "enslavementMax": 0.5,
+        "minimumPopulationProtection": 100,
+        "attackLimitPerDay": 1,
+        "defenseLimitPerDay": 1,
+        "pvpVisibilityThreshold": 1000
+    }
+}

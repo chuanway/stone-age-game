@@ -1,0 +1,18 @@
+{
+    "player": {
+        "attack": {
+            "costs": { "metal": { "base": 50, "multiplier": 1.5 } }
+        },
+        "defense": {
+            "costs": { "metal": { "base": 50, "multiplier": 1.5 } }
+        }
+    },
+    "clan": {
+        "attack": {
+            "costs": { "metal": { "base": 500, "multiplier": 1.5 } }
+        },
+        "defense": {
+            "costs": { "metal": { "base": 500, "multiplier": 1.5 } }
+        }
+    }
+}

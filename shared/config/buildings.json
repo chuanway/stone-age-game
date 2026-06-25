@@ -1,0 +1,115 @@
+{
+  "house": {
+    "name": "House",
+    "produces": "civilians",
+    "productionRatePerLevel": 2,
+    "upgradeLimitLevel": 0,
+    "upgradeCosts": {
+      "food": { "base": 50, "multiplier": 1.5 },
+      "wood": { "base": 30, "multiplier": 1.5 }
+    },
+    "operationalThreshold": null
+  },
+  "farm": {
+    "name": "Farm",
+    "produces": "food",
+    "productionRatePerLevel": 10,
+    "upgradeLimitLevel": 0,
+    "upgradeCosts": {
+      "food": { "base": 40, "multiplier": 1.6 }
+    },
+    "operationalThreshold": 5
+  },
+  "lumberjackHut": {
+    "name": "Lumberjack Hut",
+    "produces": "wood",
+    "productionRatePerLevel": 8,
+    "upgradeLimitLevel": 0,
+    "upgradeCosts": {
+      "wood": { "base": 40, "multiplier": 1.6 }
+    },
+    "operationalThreshold": 5
+  },
+  "mine": {
+    "name": "Mine",
+    "produces": "metal",
+    "productionRatePerLevel": 6,
+    "upgradeLimitLevel": 0,
+    "upgradeCosts": {
+      "wood": { "base": 60, "multiplier": 1.6 }
+    },
+    "operationalThreshold": 10
+  },
+  "armoury": {
+    "name": "Armoury",
+    "produces": "stats",
+    "upgradeLimitLevel": 1,
+    "upgradeCosts": {
+      "metal": { "base": 80, "multiplier": 1 }
+    },
+    "operationalThreshold": null
+  },
+  "barracks": {
+    "name": "Barracks",
+    "produces": null,
+    "upgradeLimitLevel": 1,
+    "upgradeCosts": {
+      "food": { "base": 100, "multiplier": 1.5 },
+      "wood": { "base": 60, "multiplier": 1.5 },
+      "metal": { "base": 40, "multiplier": 1.5 }
+    },
+    "operationalThreshold": null
+  },
+  "startingBuildings": {
+    "house": 1,
+    "farm": 1,
+    "lumberjackHut": 1
+  },
+  "clan": {
+    "startingBuildings": {
+      "lumberjackHut": 1,
+      "farm": 1,
+      "mine": 1
+    },
+    "lumberjackHut": {
+      "upgradeCosts": {
+        "wood": { "base": 500, "multiplier": 1.5 }
+      },
+      "productionRatePerLevel": 1,
+      "populationRequirement": {
+        "base": 10000,
+        "multiplier": 1.2
+      },
+      "baseCapacity": 3000,
+      "capacityUpgradePerLevel": 500
+    },
+    "farm": {
+      "upgradeCosts": {
+        "food": { "base": 500, "multiplier": 1.5 }
+      },
+      "productionRatePerLevel": 2,
+      "populationRequirement": {
+        "base": 10000,
+        "multiplier": 1.2
+      },
+      "baseCapacity": 3000,
+      "capacityUpgradePerLevel": 500
+    },
+    "mine": {
+      "upgradeCosts": {
+        "metal": { "base": 500, "multiplier": 1.5 }
+      },
+      "productionRatePerLevel": 1,
+      "populationRequirement": {
+        "base": 10000,
+        "multiplier": 1.2
+      },
+      "baseCapacity": 3000,
+      "capacityUpgradePerLevel": 500
+    },
+    "armoury": {
+      "produces": "stats",
+      "upgradeLimitLevel": 1
+    }
+  }
+}

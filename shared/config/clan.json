@@ -1,0 +1,7 @@
+{
+  "activationCap": 10000,
+  "contributionRule": {
+    "requiredCivilians": 200,
+    "deadlineDays": 3
+  }
+}

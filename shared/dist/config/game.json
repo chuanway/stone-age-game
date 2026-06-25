@@ -1,0 +1,11 @@
+{
+    "startingResources": {
+        "food": 200,
+        "wood": 150,
+        "metal": 50,
+        "civilians": 10,
+        "soldiers": 0
+    },
+    "soldierConversionRate": 1,
+    "resourceTickIntervalMs": 300000
+}
